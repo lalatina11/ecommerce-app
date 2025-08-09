@@ -10,7 +10,7 @@ const Page = () => {
     return (
         <div>
             <span>Hei</span>
-            <ModeToggle isGhost/>
+            <ModeToggle />
         </div>
     )
 }
