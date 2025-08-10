@@ -1,17 +1,24 @@
-import {Calendar, Home, Inbox, Search, Settings, User2} from "lucide-react";
+"use client"
+import {Calendar, ChevronDown, Home, Inbox, Plus, Projector, Search, Settings, User2} from "lucide-react";
 import {
     Sidebar,
     SidebarContent,
     SidebarFooter,
     SidebarGroup,
-    SidebarGroupContent, SidebarGroupLabel,
-    SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarSeparator
+    SidebarGroupAction,
+    SidebarGroupContent,
+    SidebarGroupLabel,
+    SidebarHeader,
+    SidebarMenu, SidebarMenuBadge,
+    SidebarMenuButton,
+    SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem,
+    SidebarSeparator
 } from "@/components/ui/sidebar";
 import Link from "next/link";
-import Image from "next/image";
-import {Label} from "@/components/ui/label";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
-import {Button, buttonVariants} from "@/components/ui/button";
+import {Button} from "@/components/ui/button";
+import SidebarGroupHeader from "@/components/SidebarGroupHeader";
+import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/ui/collapsible";
 
 const items = [
     {
@@ -43,23 +50,17 @@ const items = [
 
 const AppSidebar = () => {
     return (
-        <Sidebar collapsible={"icon"}>
+        <Sidebar collapsible={"icon"} className={"overflow-x-hidden"}>
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton asChild className={"h-max flex justify-center items-center"}>
-                            <Link href="/" className={"flex items-center"}>
-                                <div className={"" + buttonVariants({size: "icon", variant: "ghost"})}>
-                                    <Image src={"/logo.svg"} alt="Logo" width={50} height={50}
-                                           className={"aspect-square max-h-10 w-auto object-cover"}/>
-                                </div>
-                                <Label className={"text-2xl font-semibold"}>iShop</Label>
-                            </Link>
+                            <SidebarGroupHeader/>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
                 </SidebarMenu>
             </SidebarHeader>
-            <SidebarSeparator/>
+            <SidebarSeparator className={"w-full"}/>
             <SidebarContent>
                 <SidebarGroup>
                     <SidebarGroupLabel>Application</SidebarGroupLabel>
@@ -69,12 +70,107 @@ const AppSidebar = () => {
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton asChild>
                                         <Link href={item.url}>
-                                            <item.icon/>
+                                            <item.icon className={""}/>
                                             <span>{item.title}</span>
                                         </Link>
                                     </SidebarMenuButton>
+                                    {item.title === "Inbox" && (
+                                        <SidebarMenuBadge>24</SidebarMenuBadge>
+                                    )}
                                 </SidebarMenuItem>
                             ))}
+                        </SidebarMenu>
+                    </SidebarGroupContent>
+                </SidebarGroup>
+                <SidebarGroup>
+                    <SidebarGroupLabel>Projects</SidebarGroupLabel>
+                    <SidebarGroupAction>
+                        <Plus/>
+                    </SidebarGroupAction>
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            <SidebarMenuItem>
+                                <SidebarMenuButton asChild>
+                                    <Link href={"#"}>
+                                        <Projector/>
+                                        <span>See All Projects</span>
+                                    </Link>
+                                </SidebarMenuButton>
+                            </SidebarMenuItem>
+                            <SidebarMenuItem>
+                                <SidebarMenuButton asChild>
+                                    <Link href={"#"}>
+                                        <Plus/>
+                                        <span>Add a Projects</span>
+                                    </Link>
+                                </SidebarMenuButton>
+                            </SidebarMenuItem>
+                        </SidebarMenu>
+                    </SidebarGroupContent>
+                </SidebarGroup>
+                <Collapsible>
+                    <SidebarGroup>
+                        <SidebarGroupLabel>
+                            <CollapsibleTrigger className={"flex justify-between items-center w-full"}>
+                                Collapsible
+                                <ChevronDown/>
+                            </CollapsibleTrigger>
+                        </SidebarGroupLabel>
+                        <CollapsibleContent>
+                            <SidebarGroupContent>
+                                <SidebarMenu>
+                                    <SidebarMenuItem>
+                                        <SidebarMenuButton asChild>
+                                            <Link href={"#"}>
+                                                <Projector/>
+                                                <span>See All Projects</span>
+                                            </Link>
+                                        </SidebarMenuButton>
+                                    </SidebarMenuItem>
+                                    <SidebarMenuItem>
+                                        <SidebarMenuButton asChild>
+                                            <Link href={"#"}>
+                                                <Plus/>
+                                                <span>Add a Projects</span>
+                                            </Link>
+                                        </SidebarMenuButton>
+                                    </SidebarMenuItem>
+                                </SidebarMenu>
+                            </SidebarGroupContent>
+                        </CollapsibleContent>
+                    </SidebarGroup>
+                </Collapsible>
+                {/*NESTED SIDEBAR*/}
+                <SidebarGroup>
+                    <SidebarGroupLabel>Nested Items</SidebarGroupLabel>
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            <SidebarMenuItem>
+                                <SidebarMenuButton asChild>
+                                    <Link href={"#"}>
+                                        <Projector/>
+                                        <span>See All Projects</span>
+                                    </Link>
+                                </SidebarMenuButton>
+                                <SidebarMenuSub>
+                                    <SidebarMenuSubItem>
+                                        <SidebarMenuSubButton asChild>
+                                            <Link href={"#"}>
+                                                <Plus/>
+                                                Add Project
+                                            </Link>
+                                        </SidebarMenuSubButton>
+                                    </SidebarMenuSubItem>
+                                </SidebarMenuSub>
+                            </SidebarMenuItem>
+                            <SidebarMenuItem>
+                                <SidebarMenuButton asChild>
+                                    <Link href={"#"}>
+                                        <Plus/>
+                                        <span>Add a Projects</span>
+                                    </Link>
+                                </SidebarMenuButton>
+                            </SidebarMenuItem>
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
