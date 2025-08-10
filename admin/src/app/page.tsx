@@ -8,9 +8,13 @@ export const metadata: Metadata = {
 
 const Page = () => {
     return (
-        <div>
-            <span>Hei</span>
-            <ModeToggle />
+        <div className={"grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-4"}>
+            <div className={"bg-primary-foreground rounded-lg p-4 lg:col-span-2 xl:col-span-1 2xl:col-span-2"}>test</div>
+            <div className={"bg-primary-foreground rounded-lg p-4"}>test</div>
+            <div className={"bg-primary-foreground rounded-lg p-4"}>test</div>
+            <div className={"bg-primary-foreground rounded-lg p-4"}>test</div>
+            <div className={"bg-primary-foreground rounded-lg p-4 lg:col-span-2 xl:col-span-1 2xl:col-span-2"}>test</div>
+            <div className={"bg-primary-foreground rounded-lg p-4"}>test</div>
         </div>
     )
 }

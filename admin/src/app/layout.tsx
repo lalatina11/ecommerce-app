@@ -21,7 +21,7 @@ export default async function RootLayout({
     const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
     return (
         <html lang="en" suppressHydrationWarning={true}>
-        <body className={"bg-zinc-200/50 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 antialiased scroll-smooth"}
+        <body className={"bg-zinc-200/50 text-zinc-800 dark:bg-zinc-950 dark:text-zinc-200 antialiased scroll-smooth"}
         >
         <ThemeProvider
             attribute="class"
