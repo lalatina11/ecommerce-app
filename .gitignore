@@ -1,0 +1,6 @@
+.idea
+.vscode
+pnpm*
+bun*
+yarn*
+package-lock*
