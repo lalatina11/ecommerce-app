@@ -5,7 +5,7 @@ import {SidebarTrigger} from "@/components/ui/sidebar";
 
 const Navbar = () => {
     return (
-        <header className={"flex px-4 items-center justify-between"}>
+        <header className={"flex p-4 items-center justify-between"}>
             {/*LEFT*/}
             <SidebarTrigger />
             {/*Right*/}
