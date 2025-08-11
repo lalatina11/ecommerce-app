@@ -122,3 +122,7 @@ button{
     @apply bg-background text-foreground;
   }
 }
+
+html{
+    @apply 2xl:text-[115%];
+}
