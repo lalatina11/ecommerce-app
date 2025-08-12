@@ -2,6 +2,7 @@ import {Metadata} from "next";
 import AppBarChart from "@/components/AppBarChart";
 import AppAreaChart from "@/components/AppAreaChart";
 import AppPieChart from "@/components/AppPieChart";
+import CardList from "@/components/CardList";
 
 export const metadata: Metadata = {
     title: "iShop Admin | Home",
@@ -14,14 +15,18 @@ const Page = () => {
             <div className={"bg-primary-foreground rounded-lg p-4 lg:col-span-2 xl:col-span-1 2xl:col-span-2"}>
                 <AppBarChart/>
             </div>
-            <div className={"bg-primary-foreground rounded-lg p-4"}>test</div>
+            <div className={"bg-primary-foreground rounded-lg p-4"}>
+                <CardList title={"Latest Transaction"}/>
+            </div>
             <div className={"bg-primary-foreground rounded-lg p-4"}>
                 <AppPieChart/>
             </div>
             <div className={"bg-primary-foreground rounded-lg p-4"}>test</div>
-            <div className={"bg-primary-foreground rounded-lg p-4"}>test</div>
             <div className={"bg-primary-foreground rounded-lg p-4 lg:col-span-2 xl:col-span-1 2xl:col-span-2"}>
                 <AppAreaChart/>
+            </div>
+            <div className={"bg-primary-foreground rounded-lg p-4"}>
+                <CardList title={"Popular Content"}/>
             </div>
         </div>
     )
