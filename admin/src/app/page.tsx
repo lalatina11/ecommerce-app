@@ -8,7 +8,7 @@ import TodoList from "@/components/TodoList";
 export const metadata: Metadata = {
   title: "iShop Admin | Home",
   description: "iShop Admin Dashboard",
-  icons: "logo.svg",
+  icons: "/logo.svg",
 };
 
 const Page = () => {
