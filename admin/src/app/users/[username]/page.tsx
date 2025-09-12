@@ -1,6 +1,8 @@
+import AppLineChart from "@/components/AppLineChart";
 import CardList from "@/components/CardList";
 import EditUser from "@/components/EditUser";
 import ProfileCompletionsProgress from "@/components/ProfileCompletionsProgress";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
   Breadcrumb,
@@ -183,9 +185,28 @@ const Page = async ({ params }: Props) => {
         {/* RIGHT */}
         <div className="w-full xl:w-2/3 space-y-6">
           {/* User Card */}
-          <div className="bg-primary-foreground p-4 rounded-lg">User Card</div>
+          <div className="bg-primary-foreground p-4 rounded-lg space-y-2">
+            <div className="flex items-center gap-2">
+              <Avatar className="size-12">
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>
+                  {userInformation.username.slice(0, 2)}
+                </AvatarFallback>
+              </Avatar>
+              <span className="text-xl font-semibold">{username}</span>
+            </div>
+            <span className="text-sm text-muted-foreground">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
+              sunt quam, reiciendis quod exercitationem atque ab provident
+              deserunt fuga architecto dicta autem ad pariatur maxime magnam quo
+              ipsam ullam dolor.
+            </span>
+          </div>
           {/* User Chart */}
-          <div className="bg-primary-foreground p-4 rounded-lg">User Chart</div>
+          <div className="bg-primary-foreground p-4 rounded-lg flex flex-col gap-3">
+            <span className="text-lg font-semibold">User Activity</span>
+            <AppLineChart />
+          </div>
         </div>
       </div>
     </div>
