@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { columns } from "@/components/payments/column";
-import { DataTable } from "@/components/payments/DataTable";
+import { DataTable } from "@/components/payments";
 import paymentsData from "@/lib/payments";
 
 export const metadata: Metadata = {
