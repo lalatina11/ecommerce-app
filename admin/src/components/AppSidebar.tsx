@@ -1,9 +1,10 @@
 "use client";
+
+import { MdOutlinePayments } from "react-icons/md";
 import {
   ChevronDown,
   Home,
   Inbox,
-  Parentheses,
   Plus,
   Projector,
   Search,
@@ -67,7 +68,7 @@ const items = [
   {
     title: "Payments",
     url: "/payments",
-    icon: Parentheses,
+    icon: MdOutlinePayments,
   },
 ];
 
