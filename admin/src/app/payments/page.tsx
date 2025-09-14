@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { columns } from "@/components/payments/column";
-import { DataTable } from "@/components/payments";
 import paymentsData from "@/lib/payments";
+import { PaymentsTable } from "@/components/payments";
 
 export const metadata: Metadata = {
   title: "iShop Admin Payments",
@@ -16,7 +16,7 @@ const Page = async () => {
       <div className="mb-8 px-4 py-2 bg-secondary rounded-md">
         <h1 className="font-semibold">All Payments</h1>
       </div>
-      <DataTable columns={columns} data={data} />
+      <PaymentsTable columns={columns} data={data} />
     </div>
   );
 };
