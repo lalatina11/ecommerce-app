@@ -72,8 +72,8 @@ const Categories = () => {
         <Button
           key={cat.name}
           className=""
-          disabled={selectedCategory === cat.name}
-          onClick={() => handleSetCategory(cat.name)}
+          disabled={selectedCategory === cat.slug}
+          onClick={() => handleSetCategory(cat.slug)}
         >
           <cat.icon className="size-4" />
           <span>{cat.name}</span>
