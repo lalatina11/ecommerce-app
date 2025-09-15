@@ -1,7 +1,9 @@
-import type {Metadata} from "next";
+import type { Metadata } from "next";
 import "./globals.css";
-import {ReactNode} from "react";
-import {ThemeProvider} from "@/components/ThemeProvider";
+import { ReactNode } from "react";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,17 +17,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={"bg-zinc-200/50 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 antialiased scroll-smooth"}
+      <body
+        className={
+          "bg-zinc-200/50 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 antialiased scroll-smooth"
+        }
       >
-      <ThemeProvider
+        <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-      >
-
-      {children}
-      </ThemeProvider>
+        >
+          <div className="mx-auto p-4 sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-6xl">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
