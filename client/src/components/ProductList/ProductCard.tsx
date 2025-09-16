@@ -10,7 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
-import { buttonVariants } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { Card, CardFooter } from "../ui/card";
 import { Label } from "../ui/label";
 
@@ -24,6 +24,10 @@ const ProductCard = ({ product }: Props) => {
   );
   const [selectProductSize, setselectProductSize] = useState(product.sizes[0]);
 
+  const addToChart = (id: ProductType["id"]) => {
+    console.log(id);
+  };
+
   return (
     <Card className="p-4 bg-background overflow-hidden pb-5">
       <Link href={`/products/${product.id}`}>
@@ -35,7 +39,7 @@ const ProductCard = ({ product }: Props) => {
           className="object-cover rounded-md aspect-[2/3] hover:scale-105 transition-all duration-300"
         />
       </Link>
-      <CardFooter className="flex flex-col gap-2 w-full px-0">
+      <CardFooter className="flex flex-col justify-between h-full gap-2 w-full px-0">
         <div className="flex justify-between items-center gap-3 w-full">
           <div className="flex flex-col gap-1 flex-1/2">
             <Label>Size</Label>
@@ -43,12 +47,16 @@ const ProductCard = ({ product }: Props) => {
               onValueChange={(value) => setselectProductSize(value)}
               value={selectProductSize}
             >
-              <SelectTrigger className="w-max">
+              <SelectTrigger className="w-[80%]">
                 <Label className="uppercase">{selectProductSize}</Label>
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="w-max">
                 {product.sizes.map((size) => (
-                  <SelectItem key={size} className="uppercase" value={size}>
+                  <SelectItem
+                    key={size}
+                    className="uppercase flex justify-center items-center"
+                    value={size}
+                  >
                     {size}
                   </SelectItem>
                 ))}
@@ -97,8 +105,8 @@ const ProductCard = ({ product }: Props) => {
           <Label className="flex-1/2 text-lg font-semibold">
             ${product.price}
           </Label>
-          <Link
-            href={`/products/${product.id}`}
+          <Button
+            onClick={() => addToChart(product.id)}
             className={
               "flex gap-2 justify-normal items-center flex-1/2" +
               buttonVariants({ variant: "default" })
@@ -106,7 +114,7 @@ const ProductCard = ({ product }: Props) => {
           >
             Add to Cart
             <FaCartPlus />
-          </Link>
+          </Button>
         </div>
       </CardFooter>
     </Card>
