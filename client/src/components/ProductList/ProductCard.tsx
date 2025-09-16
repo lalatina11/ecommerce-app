@@ -4,7 +4,6 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
 } from "@/components/ui/select";
 import { ProductType } from "@/types";
 import Image from "next/image";
@@ -21,7 +20,7 @@ interface Props {
 
 const ProductCard = ({ product }: Props) => {
   const [selectProductColor, setSelectProductColor] = useState(
-    product.colors[0]
+    product.colors[0],
   );
   const [selectProductSize, setselectProductSize] = useState(product.sizes[0]);
 
@@ -77,8 +76,8 @@ const ProductCard = ({ product }: Props) => {
                         selectProductColor !== "red"
                           ? "bg-red-500"
                           : selectProductColor === color && color === "red"
-                          ? "bg-black"
-                          : ""
+                            ? "bg-black"
+                            : ""
                       }`}
                     />
                   )}
