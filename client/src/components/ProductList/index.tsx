@@ -1,6 +1,12 @@
 import { ProductsType } from "@/types";
 import Categories from "./Categories";
 import ProductCard from "./ProductCard";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+interface Props {
+  category: string;
+}
 
 // TEMPORARY
 const products: ProductsType = [
@@ -114,7 +120,7 @@ const products: ProductsType = [
   },
 ];
 
-const ProductList = () => {
+const ProductList = ({ category }: Props) => {
   return (
     <div className="w-full">
       <Categories />
@@ -123,6 +129,19 @@ const ProductList = () => {
           <ProductCard key={prod.id} product={prod} />
         ))}
       </div>
+      <Link
+        className={
+          "mt-6 flex gap-3 items-center w-fit mr-auto text-primary border-b border-b-transparent hover:border-b-primary transition-all duration-300 ease-in-out pb-1"
+        }
+        href={
+          category && category !== "all"
+            ? `/products?category=${category}`
+            : "/products"
+        }
+      >
+        View All Products
+        <ArrowRight />
+      </Link>
     </div>
   );
 };
