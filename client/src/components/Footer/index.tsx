@@ -16,21 +16,21 @@ const Footer = () => {
         <p className="text-sm text-muted-foreground">All rights reserved.</p>
       </div>
       <div className="flex flex-col gap-4 text-sm text-muted-foreground items-center md:items-start">
-        <p className="text-sm text-primary font-semibold">Pages</p>
+        <p className="text-sm text-foreground font-semibold">Pages</p>
         <Link href="/">Homepage</Link>
         <Link href="/">Contact</Link>
         <Link href="/">Terms of Service</Link>
         <Link href="/">Privacy Policy</Link>
       </div>
       <div className="flex flex-col gap-4 text-sm text-muted-foreground items-center md:items-start">
-        <p className="text-sm text-primary font-semibold">Products</p>
+        <p className="text-sm text-foreground font-semibold">Products</p>
         <Link href="/">All Products</Link>
         <Link href="/">New Arrivals</Link>
         <Link href="/">Best Sellers</Link>
         <Link href="/">Sale</Link>
       </div>
       <div className="flex flex-col gap-4 text-sm text-muted-foreground items-center md:items-start">
-        <p className="text-sm text-primary font-semibold">Extra</p>
+        <p className="text-sm text-foreground font-semibold">Extra</p>
         <Link href="/">About</Link>
         <Link href="/">Contact</Link>
         <Link href="/">Blog</Link>
