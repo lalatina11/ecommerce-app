@@ -29,7 +29,7 @@ const ProductCard = ({ product }: Props) => {
   };
 
   return (
-    <Card className="p-4 bg-background overflow-hidden pb-5">
+    <Card className="p-3 bg-background overflow-hidden">
       <Link href={`/products/${product.id}`}>
         <Image
           src={product.images[selectProductColor]}
