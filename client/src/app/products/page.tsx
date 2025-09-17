@@ -15,7 +15,7 @@ const Page = async ({ searchParams }: Props) => {
   const { category } = await searchParams;
   return (
     <div>
-      <ProductList category={category} />
+      <ProductList params="ProductsPage" category={category} />
     </div>
   );
 };

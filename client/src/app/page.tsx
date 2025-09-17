@@ -26,7 +26,7 @@ const Page = async ({ searchParams }: Props) => {
           className="object-cover w-full h-auto"
         />
       </div>
-      <ProductList category={category} />
+      <ProductList params="HomePage" category={category} />
     </div>
   );
 };
