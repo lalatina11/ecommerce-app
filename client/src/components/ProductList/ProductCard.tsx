@@ -95,7 +95,10 @@ const ProductCard = ({ product }: Props) => {
             </div>
           </div>
         </div>
-        <Link className="font-semibold" href={`/products/${product.id}`}>
+        <Link
+          className="font-semibold text-start w-full"
+          href={`/products/${product.id}`}
+        >
           {product.name}
         </Link>
         <span className="text-xs text-muted-foreground">
