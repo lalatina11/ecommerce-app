@@ -66,7 +66,7 @@ const ProductCard = ({ product }: Props) => {
           <div className="flex gap-1 flex-col justify-start h-full flex-1/2">
             <Label className="text-sm">Color</Label>
             <div className="flex items-center gap-1">
-              {product.colors.map((color) => (
+              {product.colors.slice(0, 4).map((color) => (
                 <div
                   style={{
                     backgroundColor: color,
@@ -74,20 +74,22 @@ const ProductCard = ({ product }: Props) => {
                   key={color}
                   onClick={() => setSelectProductColor(color)}
                   aria-disabled={selectProductColor === color}
-                  className="size-4 rounded-full cursor-pointer border border-zinc-500 p-1 relative aria-disabled:cursor-default aria-disabled:opacity-70"
+                  className="size-5 rounded-full cursor-pointer border border-zinc-500 p-1 relative aria-disabled:cursor-default "
                 >
                   {/* MARKER */}
                   {selectProductColor === color && (
                     <div
-                      className={`absolute w-3.5 h-1 left-0 top-[5px] rounded-full -rotate-45 ${
+                      className={`absolute text-2xl font-bold h-1 left-[3px] -top-[9px] rounded-full ${
                         selectProductColor === color &&
                         selectProductColor !== "red"
-                          ? "bg-red-500"
+                          ? "text-red-500"
                           : selectProductColor === color && color === "red"
-                            ? "bg-black"
+                            ? "text-black"
                             : ""
                       }`}
-                    />
+                    >
+                      x
+                    </div>
                   )}
                   {/* MARKER END */}
                 </div>
