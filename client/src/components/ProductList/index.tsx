@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 interface Props {
   category: string;
+  params: "HomePage" | "ProductsPage";
 }
 
 // TEMPORARY
