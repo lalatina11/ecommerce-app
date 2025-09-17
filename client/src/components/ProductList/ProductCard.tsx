@@ -65,36 +65,21 @@ const ProductCard = ({ product }: Props) => {
           </div>
           <div className="flex gap-1 flex-col justify-start h-full flex-1/2">
             <Label className="text-sm">Color</Label>
-            <div className="flex items-center gap-1">
-              {product.colors.slice(0, 4).map((color) => (
-                <div
-                  style={{
-                    backgroundColor: color,
-                  }}
-                  key={color}
-                  onClick={() => setSelectProductColor(color)}
-                  aria-disabled={selectProductColor === color}
-                  className="size-5 rounded-full cursor-pointer border border-zinc-500 p-1 relative aria-disabled:cursor-default "
-                >
-                  {/* MARKER */}
-                  {selectProductColor === color && (
-                    <div
-                      className={`absolute text-2xl font-bold h-1 left-[3px] -top-[9px] rounded-full ${
-                        selectProductColor === color &&
-                        selectProductColor !== "red"
-                          ? "text-red-500"
-                          : selectProductColor === color && color === "red"
-                            ? "text-black"
-                            : ""
-                      }`}
-                    >
-                      x
-                    </div>
-                  )}
-                  {/* MARKER END */}
-                </div>
-              ))}
-            </div>
+            <Select
+              onValueChange={(value) => setSelectProductColor(value)}
+              value={selectProductColor}
+            >
+              <SelectTrigger className="w-[90%] truncate">
+                <Label className="uppercase">{selectProductColor}</Label>
+              </SelectTrigger>
+              <SelectContent className="">
+                {product.colors.map((color) => (
+                  <SelectItem key={color} className="uppercase" value={color}>
+                    {color}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </div>
         <Link
