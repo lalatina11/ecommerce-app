@@ -103,7 +103,7 @@ const ProductCard = ({ product }: Props) => {
         </span>
         <div className="flex justify-between items-center w-full mt-2">
           <Label className="flex-1/2 text-lg font-semibold">
-            ${product.price}
+            ${product.price.toFixed(2)}
           </Label>
           <Button
             onClick={() => addToChart(product.id)}
