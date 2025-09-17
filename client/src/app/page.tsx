@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 };
 
 interface Props {
-  searchParams: { category: string };
+  searchParams: Promise<{ category: string }>;
 }
 
-const Page = ({ searchParams }: Props) => {
-  const category = searchParams.category;
+const Page = async ({ searchParams }: Props) => {
+  const { category } = await searchParams;
 
   return (
     <div className="flex flex-col w-full min-h-screen">
