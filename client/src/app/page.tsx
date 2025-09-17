@@ -8,7 +8,13 @@ export const metadata: Metadata = {
   icons: "/logo.svg",
 };
 
-const Page = () => {
+interface Props {
+  searchParams: { category: string };
+}
+
+const Page = ({ searchParams }: Props) => {
+  const category = searchParams.category;
+
   return (
     <div className="flex flex-col w-full min-h-screen">
       <div className="bg-background p-6 rounded-lg shadow shadow-zinc-500 mt-6 ring ring-zinc-500 mb-5">
@@ -20,7 +26,7 @@ const Page = () => {
           className="object-cover w-full h-auto"
         />
       </div>
-      <ProductList />
+      <ProductList category={category} />
     </div>
   );
 };
